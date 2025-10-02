@@ -1,26 +1,21 @@
 import express from "express";
 import cors from "cors";
-import mongoose from "mongoose";
-import scoreRoutes from "./routes/scoreRoutes.js"; 
+import dotenv from "dotenv";
+import scoreRoutes from "./routes/scoreRoutes.js";
+import connectDB from "./config/DbConnect.js";
 
 const app = express();
 
+dotenv.config();
 
 app.use(cors({
-  origin: "http://localhost:3000", 
+  origin: ["http://localhost:3000", "https://seu-dominio-vercel.app"], 
 }));
-app.use(express.json()); 
+app.use(express.json());
 
-
-mongoose.connect(
-"mongodb+srv://joaosports19_db_user:k8qnAoyD2xDOBLLj@cluster0.xp29en9.mongodb.net/"
-)
-.then(() => console.log("MongoDB conectado"))
-.catch(err => console.error("Erro ao conectar no MongoDB:", err));
-
+connectDB();
 
 app.use("/", scoreRoutes);
-
 
 app.get("/teste", (req, res) => {
   res.json({ message: "API funcionando!" });
