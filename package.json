@@ -2,9 +2,9 @@
   "name": "snake-api",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": " node src/app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server.js"
   },
   "type": "module",
   "keywords": [],
@@ -15,6 +15,7 @@
     "dotenv": "^17.2.3",
     "express": "^5.1.0",
     "mongoose": "^8.18.2",
+    "next": "^15.5.4",
     "swagger-jsdoc": "^6.2.8",
     "swagger-ui-express": "^5.0.1",
     "yamljs": "^0.3.0"
