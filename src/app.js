@@ -15,7 +15,10 @@ app.use(express.json());
 
 connectDB();
 
-app.use("/", scoreRoutes);
+app.get("/", scoreRoutes);
+
+ 
+
 
 app.get("/teste", (req, res) => {
   res.json({ message: "API funcionando!" });
