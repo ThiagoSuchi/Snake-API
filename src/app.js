@@ -19,7 +19,7 @@ let swaggerDocument;
 try {
   swaggerDocument = YAML.load(join(__dirname, "..", "swagger.yaml"));
 } catch (error) {
-  console.warn("Swagger YAML não encontrado, continuando sem documentação");
+  console.warn("⚠️ Swagger YAML não encontrado, continuando sem documentação");
 }
 
 const app = express();
@@ -32,8 +32,8 @@ app.use(cors({
 app.use(express.json()); 
 app.use(express.urlencoded({ extended: true }));
 
-// Conectar ao banco de dados
-connectDB().catch(err => console.error("Erro na conexão inicial com MongoDB:", err));
+// Conectar ao banco de dados (não bloqueia)
+connectDB().catch(err => console.error("⚠️ Erro na conexão inicial com MongoDB:", err.message));
 
 // Rotas
 app.get("/", (req, res) => {
