@@ -14,11 +14,11 @@ Configure no Dashboard da Vercel (**Settings** → **Environment Variables**):
 
 | Key | Value | Environments |
 |-----|-------|--------------|
-| `MONGODB_URI` | `mongodb+srv://joaosports19_db_user:k8qnAoyD2xDOBLLj@cluster0.xp29en9.mongodb.net/snake-game` | Production, Preview, Development |
+| `MONGODB_URI` | `mongodb+srv://joaosports19_db_user:k8qnAoyD2xDOBLLj@cluster0.xp29en9.mongodb.net/joaosports19_db` | Production, Preview, Development |
 | `NODE_ENV` | `production` | Production |
 | `CORS_ORIGIN` | `*` ou sua URL frontend | Todos |
 
-⚠️ **IMPORTANTE**: Adicione `/snake-game` no final da `MONGODB_URI`!
+⚠️ **IMPORTANTE**: Use o nome correto do banco de dados: `joaosports19_db`!
 
 ### 3. Passos para Deploy
 
