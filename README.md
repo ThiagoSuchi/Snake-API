@@ -33,16 +33,29 @@ A Snake API é uma aplicação backend desenvolvida em Node.js com Express, proj
    npm install
    ```
 
-3. Configure o banco de dados:
-   - Certifique-se de ter uma instância do MongoDB rodando.
-   - A conexão está configurada para um cluster MongoDB Atlas. Substitua a string de conexão em `src/app.js` se necessário.
+3. Configure as variáveis de ambiente:
+   - Crie um arquivo `.env` na raiz do projeto com:
+     ```
+     MONGODB_URI=mongodb+srv://<usuario>:<senha>@<cluster>.mongodb.net/<database>?retryWrites=true&w=majority
+     ```
+   - Para produção, configure as variáveis no painel da Vercel.
 
-4. Execute o servidor:
+4. Execute o servidor localmente:
    ```
-   node server.js
+   npm start
    ```
 
-   O servidor será iniciado na porta 4000 (ou a definida na variável de ambiente `PORT`).
+   O servidor será iniciado na porta 4000.
+
+## Deploy na Vercel
+
+1. Instale a CLI da Vercel: `npm i -g vercel`
+2. Faça login: `vercel login`
+3. No diretório do projeto: `vercel`
+4. Configure as variáveis de ambiente no dashboard da Vercel: `MONGODB_URI`
+5. Deploy: `vercel --prod`
+
+A API estará disponível em uma URL fornecida pela Vercel.
 
 ## Endpoints da API
 

@@ -2,7 +2,7 @@
   "name": "snake-api",
   "version": "1.0.0",
   "description": "",
-  "main": " node src/app.js",
+  "main": "src/app.js",
   "scripts": {
     "start": "node server.js"
   },
@@ -10,12 +10,14 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "engines": {
+    "node": ">=18.0.0"
+  },
   "dependencies": {
     "cors": "^2.8.5",
     "dotenv": "^17.2.3",
     "express": "^5.1.0",
     "mongoose": "^8.18.2",
-    "next": "^15.5.4",
     "serverless": "^4.20.2",
     "serverless-http": "^4.0.0",
     "swagger-jsdoc": "^6.2.8",
