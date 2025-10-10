@@ -1,53 +1,9 @@
 openapi: 3.0.0
 info:
-  title: Snake API
+  title: Jogador API
   version: 1.0.0
-  description: API para gerenciamento de scores e jogadores do Snake.
+  description: API para gerenciamento de jogadores e ranking do Snake.
 paths:
-  /scores:
-    get:
-      summary: Lista os scores
-      responses:
-        "200":
-          description: Lista de scores
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/Score'
-    post:
-      summary: Cria um novo score
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                nome:
-                  type: string
-                pontos:
-                  type: integer
-      responses:
-        "201":
-          description: Score criado
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Score'
-  /scores/{id}:
-    delete:
-      summary: Deleta um score
-      parameters:
-        - name: id
-          in: path
-          required: true
-          schema:
-            type: string
-      responses:
-        "204":
-          description: Score deletado
   /jogadores:
     get:
       summary: Lista todos os jogadores
@@ -134,15 +90,6 @@ paths:
                   $ref: '#/components/schemas/Jogador'
 components:
   schemas:
-    Score:
-      type: object
-      properties:
-        _id:
-          type: string
-        nome:
-          type: string
-        pontos:
-          type: integer
     Jogador:
       type: object
       properties:
