@@ -1,20 +1,25 @@
 import express from "express";
 import Jogador from "../models/jogador.js";
 
+console.log('🛣️ [ROUTES] Módulo de rotas carregado');
+
 const router = express.Router();
 
 
 router.get("/jogadores", async (req, res) => {
+  console.log('📥 [GET /jogadores] Requisição recebida');
   try {
     const jogadores = await Jogador.find({}, 'name password _id');
+    console.log(`✅ [GET /jogadores] ${jogadores.length} jogadores encontrados`);
     res.json(jogadores);
   } catch (err) {
-    console.error("Erro ao buscar jogadores:", err);
+    console.error("❌ [GET /jogadores] Erro ao buscar jogadores:", err);
     res.status(500).json({ error: "Erro no servidor", details: err.message });
   }
 });
 
 router.post("/jogadores", async (req, res) => {
+  console.log('📥 [POST /jogadores] Requisição recebida:', req.body);
   const { name, password } = req.body;
 
   if (!name || !password) {
